@@ -291,8 +291,20 @@
           "expenses": {
             "type": "integer",
             "format": "int64"
+          },
+          "purpose": {
+            "type": "string"
           }
-        }
+        },
+        "required": [
+          "name",
+          "remaining_balance",
+          "total_salary",
+          "total_expenses",
+          "category",
+          "expenses",
+          "purpose"
+        ]
       }
     },
     "error": {
@@ -404,6 +416,12 @@
           }
         ],
         "responses": {
+          "400": {
+            "$ref": "#/responses/error"
+          },
+          "200": {
+            "$ref": "#/responses/createUserTransactionResponse"
+          }
         }
       }
     }
