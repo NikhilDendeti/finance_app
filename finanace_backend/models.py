@@ -165,7 +165,7 @@ class Expense(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=50, choices=Category.choices())
     description = models.TextField(blank=True, null=True)
-    # amount = models.DecimalField(max_digits=10, decimal_places=2)
+    expense_amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -176,12 +176,11 @@ class Transaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     transaction_type = models.CharField(max_length=10, choices=(
                     ('income', 'Income'), ('expense', 'Expense')))
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateTimeField(auto_now=True)
-    description = models.TextField(blank=True, null=True)
+    remaining_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    total_expenses_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.user.username} - {self.transaction_type} - {self.amount}"
+        return f"{self.user} - {self.transaction_type} - {self.amount}"
 
     class Meta:
         ordering = ['-date']
