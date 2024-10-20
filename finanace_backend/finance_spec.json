@@ -274,7 +274,20 @@
           "total_expenses": {
             "type": "integer",
             "format": "int64"
-          },
+          }
+        },
+        "required": [
+          "name",
+          "remaining_balance",
+          "total_salary",
+          "total_expenses"
+        ]
+      }
+    },
+    "createUserExpensesDetailsResponses": {
+      "description": "GET user Expenses Response",
+      "schema": {
+        "properties": {
           "category": {
             "type": "string",
             "enum": [
@@ -288,23 +301,18 @@
               "Shopping"
             ]
           },
+          "purpose": {
+            "type": "string"
+          },
           "expenses": {
             "type": "integer",
             "format": "int64"
           },
-          "purpose": {
-            "type": "string"
+          "expenses_used_time": {
+            "type": "string",
+            "format": "date-time"
           }
-        },
-        "required": [
-          "name",
-          "remaining_balance",
-          "total_salary",
-          "total_expenses",
-          "category",
-          "expenses",
-          "purpose"
-        ]
+        }
       }
     },
     "error": {
@@ -421,6 +429,25 @@
           },
           "200": {
             "$ref": "#/responses/createUserTransactionResponse"
+          }
+        }
+      }
+    },
+    "/get/user_expenses_details/v1": {
+      "get": {
+        "summary": "Get User Expenses details",
+        "operationId": "user_expenses",
+        "parameters": [
+          {
+            "$ref": "#/parameters/CreateUserTransactionDetails"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createUserExpensesDetailsResponses"
+          },
+          "400": {
+            "$ref": "#/responses/error"
           }
         }
       }
