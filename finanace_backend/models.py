@@ -169,7 +169,7 @@ class Expense(models.Model):
     date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.user.username} - {self.category}: {self.amount}"
+        return f"{self.user.username} - {self.category}: {self.expense_amount}"
 
     class Meta:
         ordering = ['-date']
@@ -183,4 +183,4 @@ class Transaction(models.Model):
     total_expenses_amount = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.user} - {self.transaction_type} - {self.amount}"
+        return f"{self.user} - {self.transaction_type} - {self.total_expenses_amount}"
