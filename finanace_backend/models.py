@@ -171,6 +171,9 @@ class Expense(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.category}: {self.amount}"
 
+    class Meta:
+        ordering = ['-date']
+
 
 class Transaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -183,5 +186,4 @@ class Transaction(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.transaction_type} - {self.amount}"
 
-    class Meta:
-        ordering = ['-date']
+
