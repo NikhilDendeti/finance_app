@@ -1,26 +1,33 @@
 from enum import Enum
 
+
 class BaseEnum(Enum):
     @classmethod
     def list_of_values(cls):
-        return [(i.value, i.name) for i in cls]  # Correct format for Django choices
+        return [(i.value, i.name) for i in
+                cls]  # Correct format for Django choices
+
 
 class PreferenceChoices(BaseEnum):
     HIGH = 'High'
     MEDIUM = 'Medium'
     LOW = 'Low'
 
+
 class GenderChoices(BaseEnum):
     MALE = 'Male'
     FEMALE = 'Female'
     OTHER = 'Other'
 
+
 class RoleChoices(BaseEnum):
     STUDENT = 'Student'
     EMPLOYEE = 'Employee'
 
+
 class LocationChoices(BaseEnum):
     HYDERABAD = 'Hyderabad'
+
 
 class Category(BaseEnum):
     FOOD = "Food"
@@ -32,11 +39,13 @@ class Category(BaseEnum):
     SAVINGS = "Savings"
     SHOPPING = "Shopping"
 
+
 class TransactionType(BaseEnum):
     INCOME = "Income"
     EXPENSE = "Expense"  # Corrected from tuple to string
 
-class LocationEnum(BaseEnum):
+
+class AreaEnum(BaseEnum):
     ALWAL = "Alwal"
     AMBERPET = "Amberpet"
     AMEERPET = "Ameerpet"

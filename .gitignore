@@ -1,0 +1,18 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+myenv/
+mynewenv/
+.env
+
+# Ignore SQLite database files
+*.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore IDE-specific files
+.idea/
+.vscode/

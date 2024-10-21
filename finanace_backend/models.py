@@ -52,7 +52,7 @@ class UserProfile(models.Model):
 class Location(models.Model):
     name = models.CharField(
         max_length=50,
-        choices=LocationEnum.list_of_values(),
+        choices=AreaEnum.list_of_values(),
     )
 
     def __str__(self):
