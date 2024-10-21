@@ -10,3 +10,5 @@ admin.site.register(Location)
 
 
 admin.site.register(LocationBasedExpenditure)
+admin.site.register(Expense)
+admin.site.register(Transaction)
